@@ -1,13 +1,13 @@
 # Begin_DVE_Session_Save_Info
 # DVE full session
-# Saved on Sun Apr 27 06:00:24 2025
+# Saved on Sun Apr 27 16:10:52 2025
 # Designs open: 1
 #   Sim: /afs/andrew.cmu.edu/usr15/snarita/private/projects/fpga-i2c/simv
 # Toplevel windows open: 1
 # 	TopLevel.1
 #   Source.1: I2C_test
 #   Group count = 1
-#   Group Group1 signal count = 15
+#   Group Group1 signal count = 16
 # End_DVE_Session_Save_Info
 
 # DVE version: T-2022.06_Full64
@@ -113,23 +113,23 @@ gui_show_toolbar -toolbar {Testbench}
 # End ToolBar settings
 
 # Docked window settings
-set HSPane.1 [gui_create_window -type HSPane -parent ${TopLevel.1} -dock_state left -dock_on_new_line true -dock_extent 142]
+set HSPane.1 [gui_create_window -type HSPane -parent ${TopLevel.1} -dock_state left -dock_on_new_line true -dock_extent 130]
 catch { set Hier.1 [gui_share_window -id ${HSPane.1} -type Hier] }
-gui_set_window_pref_key -window ${HSPane.1} -key dock_width -value_type integer -value 142
+gui_set_window_pref_key -window ${HSPane.1} -key dock_width -value_type integer -value 130
 gui_set_window_pref_key -window ${HSPane.1} -key dock_height -value_type integer -value -1
 gui_set_window_pref_key -window ${HSPane.1} -key dock_offset -value_type integer -value 0
-gui_update_layout -id ${HSPane.1} {{left 0} {top 0} {width 141} {height 504} {dock_state left} {dock_on_new_line true} {child_hier_colhier 141} {child_hier_coltype 80} {child_hier_colpd 0} {child_hier_col1 0} {child_hier_col2 1} {child_hier_col3 -1}}
+gui_update_layout -id ${HSPane.1} {{left 0} {top 0} {width 129} {height 516} {dock_state left} {dock_on_new_line true} {child_hier_colhier 141} {child_hier_coltype 80} {child_hier_colpd 0} {child_hier_col1 0} {child_hier_col2 1} {child_hier_col3 -1}}
 set DLPane.1 [gui_create_window -type DLPane -parent ${TopLevel.1} -dock_state left -dock_on_new_line true -dock_extent 105]
 catch { set Data.1 [gui_share_window -id ${DLPane.1} -type Data] }
 gui_set_window_pref_key -window ${DLPane.1} -key dock_width -value_type integer -value 105
-gui_set_window_pref_key -window ${DLPane.1} -key dock_height -value_type integer -value 503
+gui_set_window_pref_key -window ${DLPane.1} -key dock_height -value_type integer -value 515
 gui_set_window_pref_key -window ${DLPane.1} -key dock_offset -value_type integer -value 0
-gui_update_layout -id ${DLPane.1} {{left 0} {top 0} {width 105} {height 504} {dock_state left} {dock_on_new_line true} {child_data_colvariable 179} {child_data_colvalue 100} {child_data_coltype 80} {child_data_col1 0} {child_data_col2 1} {child_data_col3 2}}
-set Console.1 [gui_create_window -type Console -parent ${TopLevel.1} -dock_state bottom -dock_on_new_line true -dock_extent 126]
+gui_update_layout -id ${DLPane.1} {{left 0} {top 0} {width 105} {height 516} {dock_state left} {dock_on_new_line true} {child_data_colvariable 179} {child_data_colvalue 100} {child_data_coltype 80} {child_data_col1 0} {child_data_col2 1} {child_data_col3 2}}
+set Console.1 [gui_create_window -type Console -parent ${TopLevel.1} -dock_state bottom -dock_on_new_line true -dock_extent 114]
 gui_set_window_pref_key -window ${Console.1} -key dock_width -value_type integer -value 1279
-gui_set_window_pref_key -window ${Console.1} -key dock_height -value_type integer -value 126
+gui_set_window_pref_key -window ${Console.1} -key dock_height -value_type integer -value 114
 gui_set_window_pref_key -window ${Console.1} -key dock_offset -value_type integer -value 0
-gui_update_layout -id ${Console.1} {{left 0} {top 0} {width 1279} {height 125} {dock_state bottom} {dock_on_new_line true}}
+gui_update_layout -id ${Console.1} {{left 0} {top 0} {width 1279} {height 113} {dock_state bottom} {dock_on_new_line true}}
 #### Start - Readjusting docked view's offset / size
 set dockAreaList { top left right bottom }
 foreach dockArea $dockAreaList {
@@ -206,7 +206,7 @@ set _session_group_1 Group1
 gui_sg_create "$_session_group_1"
 set Group1 "$_session_group_1"
 
-gui_sg_addsignal -group "$_session_group_1" { I2C_test.dut.clock I2C_test.dut.reset I2C_test.dut.send_hello I2C_test.dut.done I2C_test.dut.error I2C_test.dut.sda I2C_test.dut.scl I2C_test.dut.start_sendclear I2C_test.dut.finished_sendclear I2C_test.dut.start_sendhello I2C_test.dut.finished_sendhello I2C_test.dut.delay I2C_test.dut.sending_clear I2C_test.dut.buffer I2C_test.dut.sending_hello }
+gui_sg_addsignal -group "$_session_group_1" { I2C_test.dut.clock I2C_test.dut.reset I2C_test.dut.send_hello I2C_test.dut.done I2C_test.dut.error I2C_test.dut.sda I2C_test.dut.scl I2C_test.dut.start_sendclear I2C_test.dut.finished_sendclear I2C_test.dut.start_sendhello I2C_test.dut.finished_sendhello I2C_test.dut.delay I2C_test.dut.sending_clear I2C_test.dut.buffer I2C_test.dut.sending_hello I2C_test.dut.is_done }
 
 # Global: Highlighting
 
@@ -216,7 +216,7 @@ gui_change_stack_mode -mode list
 # Post database loading setting...
 
 # Restore C1 time
-gui_set_time -C1_only 416165000
+gui_set_time -C1_only 199259118
 
 
 
@@ -251,7 +251,7 @@ gui_list_set_filter -id ${Data.1} -list { {Buffer 1} {Input 1} {Others 1} {Linka
 gui_list_set_filter -id ${Data.1} -text {*}
 gui_list_show_data -id ${Data.1} {I2C_test.dut}
 gui_show_window -window ${Data.1}
-catch { gui_list_select -id ${Data.1} {I2C_test.dut.clock I2C_test.dut.reset I2C_test.dut.send_hello I2C_test.dut.done I2C_test.dut.error I2C_test.dut.sda I2C_test.dut.scl I2C_test.dut.start_sendclear I2C_test.dut.finished_sendclear I2C_test.dut.start_sendhello I2C_test.dut.finished_sendhello I2C_test.dut.delay I2C_test.dut.sending_clear I2C_test.dut.buffer I2C_test.dut.sending_hello }}
+catch { gui_list_select -id ${Data.1} {I2C_test.dut.clock I2C_test.dut.reset I2C_test.dut.send_hello I2C_test.dut.done I2C_test.dut.error I2C_test.dut.sda I2C_test.dut.scl I2C_test.dut.start_sendclear I2C_test.dut.finished_sendclear I2C_test.dut.start_sendhello I2C_test.dut.finished_sendhello I2C_test.dut.delay I2C_test.dut.sending_clear I2C_test.dut.buffer I2C_test.dut.sending_hello I2C_test.dut.is_done }}
 gui_view_scroll -id ${Data.1} -vertical -set 0
 gui_view_scroll -id ${Data.1} -horizontal -set 0
 gui_view_scroll -id ${Hier.1} -vertical -set 0
@@ -261,7 +261,7 @@ gui_view_scroll -id ${Hier.1} -horizontal -set 0
 gui_src_value_annotate -id ${Source.1} -switch false
 gui_set_env TOGGLE::VALUEANNOTATE 0
 gui_open_source -id ${Source.1}  -replace -active I2C_test /afs/andrew.cmu.edu/usr15/snarita/private/projects/fpga-i2c/i2c_test.sv
-gui_view_scroll -id ${Source.1} -vertical -set 0
+gui_view_scroll -id ${Source.1} -vertical -set 30
 gui_src_set_reusable -id ${Source.1}
 # Restore toplevel window zorder
 # The toplevel window could be closed if it has no view/pane

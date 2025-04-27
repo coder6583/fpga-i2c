@@ -1,16 +1,16 @@
 # Begin_DVE_Session_Save_Info
 # DVE restart session
-# Saved on Sun Apr 27 04:59:15 2025
+# Saved on Sun Apr 27 15:48:36 2025
 # Designs open: 1
 #   Sim: /afs/andrew.cmu.edu/usr15/snarita/private/projects/fpga-i2c/simv
 # Toplevel windows open: 2
 # 	TopLevel.1
 # 	TopLevel.2
 #   Source.1: I2C_test
-#   Wave.1: 20 signals
+#   Wave.1: 18 signals
 #   Group count = 2
-#   Group Group1 signal count = 15
-#   Group Group2 signal count = 20
+#   Group Group1 signal count = 16
+#   Group Group2 signal count = 18
 # End_DVE_Session_Save_Info
 
 # DVE version: T-2022.06_Full64
@@ -88,20 +88,20 @@ gui_set_time_units 1ps
 
 # Global: Signal Groups
 gui_load_child_values {I2C_test.dut}
-gui_load_child_values {I2C_test.dut.sc}
+gui_load_child_values {I2C_test.dut.sc.sb}
 
 
 set _session_group_1 Group1
 gui_sg_create "$_session_group_1"
 set Group1 "$_session_group_1"
 
-gui_sg_addsignal -group "$_session_group_1" { I2C_test.dut.clock I2C_test.dut.reset I2C_test.dut.send_hello I2C_test.dut.done I2C_test.dut.error I2C_test.dut.sda I2C_test.dut.scl I2C_test.dut.start_sendclear I2C_test.dut.finished_sendclear I2C_test.dut.start_sendhello I2C_test.dut.finished_sendhello I2C_test.dut.sending_clear I2C_test.dut.buffer I2C_test.dut.sending_hello I2C_test.dut.delay }
+gui_sg_addsignal -group "$_session_group_1" { I2C_test.dut.clock I2C_test.dut.reset I2C_test.dut.send_hello I2C_test.dut.done I2C_test.dut.error I2C_test.dut.sda I2C_test.dut.scl I2C_test.dut.start_sendclear I2C_test.dut.finished_sendclear I2C_test.dut.start_sendhello I2C_test.dut.finished_sendhello I2C_test.dut.delay I2C_test.dut.sending_clear I2C_test.dut.buffer I2C_test.dut.sending_hello I2C_test.dut.is_done }
 
 set _session_group_2 Group2
 gui_sg_create "$_session_group_2"
 set Group2 "$_session_group_2"
 
-gui_sg_addsignal -group "$_session_group_2" { I2C_test.dut.sc.clock I2C_test.dut.sc.reset I2C_test.dut.sc.start I2C_test.dut.sc.done I2C_test.dut.sc.error I2C_test.dut.sc.sda I2C_test.dut.sc.scl I2C_test.dut.sc.cycles I2C_test.dut.sc.start_bit I2C_test.dut.sc.sending I2C_test.dut.sc.stop_bit I2C_test.dut.sc.sda_en I2C_test.dut.sc.scl_en I2C_test.dut.sc.sda_val I2C_test.dut.sc.scl_val I2C_test.dut.sc.start_send I2C_test.dut.sc.finished_send I2C_test.dut.sc.bytes I2C_test.dut.sc.byte_send I2C_test.dut.sc.byte_idx }
+gui_sg_addsignal -group "$_session_group_2" { I2C_test.dut.sc.sb.clock I2C_test.dut.sc.sb.reset I2C_test.dut.sc.sb.start I2C_test.dut.sc.sb.data I2C_test.dut.sc.sb.done I2C_test.dut.sc.sb.error I2C_test.dut.sc.sb.sda I2C_test.dut.sc.sb.scl I2C_test.dut.sc.sb.cycles I2C_test.dut.sc.sb.bit_idx I2C_test.dut.sc.sb.sda_en I2C_test.dut.sc.sb.scl_en I2C_test.dut.sc.sb.sda_val I2C_test.dut.sc.sb.scl_val I2C_test.dut.sc.sb.wait_ack I2C_test.dut.sc.sb.waiting I2C_test.dut.sc.sb.sending I2C_test.dut.sc.sb.is_nak }
 
 # Global: Highlighting
 
@@ -132,16 +132,17 @@ gui_list_set_filter -id ${Hier.1} -text {*}
 gui_change_design -id ${Hier.1} -design Sim
 catch {gui_list_expand -id ${Hier.1} I2C_test}
 catch {gui_list_expand -id ${Hier.1} I2C_test.dut}
-catch {gui_list_select -id ${Hier.1} {I2C_test.dut.sc}}
+catch {gui_list_expand -id ${Hier.1} I2C_test.dut.sc}
+catch {gui_list_select -id ${Hier.1} {I2C_test.dut.sc.sb}}
 gui_view_scroll -id ${Hier.1} -vertical -set 0
 gui_view_scroll -id ${Hier.1} -horizontal -set 0
 
 # Data 'Data.1'
 gui_list_set_filter -id ${Data.1} -list { {Buffer 1} {Input 1} {Others 1} {Linkage 1} {Output 1} {LowPower 1} {Parameter 1} {All 1} {Aggregate 1} {LibBaseMember 1} {Event 1} {Assertion 1} {Constant 1} {Interface 1} {BaseMembers 1} {Signal 1} {$unit 1} {Inout 1} {Variable 1} }
 gui_list_set_filter -id ${Data.1} -text {*}
-gui_list_show_data -id ${Data.1} {I2C_test.dut.sc}
+gui_list_show_data -id ${Data.1} {I2C_test.dut.sc.sb}
 gui_show_window -window ${Data.1}
-catch { gui_list_select -id ${Data.1} {I2C_test.dut.sc.clock I2C_test.dut.sc.reset I2C_test.dut.sc.start I2C_test.dut.sc.done I2C_test.dut.sc.error I2C_test.dut.sc.sda I2C_test.dut.sc.scl I2C_test.dut.sc.cycles I2C_test.dut.sc.start_bit I2C_test.dut.sc.sending I2C_test.dut.sc.stop_bit I2C_test.dut.sc.sda_en I2C_test.dut.sc.scl_en I2C_test.dut.sc.sda_val I2C_test.dut.sc.scl_val I2C_test.dut.sc.start_send I2C_test.dut.sc.finished_send I2C_test.dut.sc.bytes I2C_test.dut.sc.byte_send I2C_test.dut.sc.byte_idx }}
+catch { gui_list_select -id ${Data.1} {I2C_test.dut.sc.sb.clock I2C_test.dut.sc.sb.reset I2C_test.dut.sc.sb.start I2C_test.dut.sc.sb.data I2C_test.dut.sc.sb.done I2C_test.dut.sc.sb.error I2C_test.dut.sc.sb.sda I2C_test.dut.sc.sb.scl I2C_test.dut.sc.sb.cycles I2C_test.dut.sc.sb.bit_idx I2C_test.dut.sc.sb.sda_en I2C_test.dut.sc.sb.scl_en I2C_test.dut.sc.sb.sda_val I2C_test.dut.sc.sb.scl_val I2C_test.dut.sc.sb.wait_ack I2C_test.dut.sc.sb.waiting I2C_test.dut.sc.sb.sending I2C_test.dut.sc.sb.is_nak }}
 gui_view_scroll -id ${Data.1} -vertical -set 0
 gui_view_scroll -id ${Data.1} -horizontal -set 0
 gui_view_scroll -id ${Hier.1} -vertical -set 0
@@ -151,7 +152,7 @@ gui_view_scroll -id ${Hier.1} -horizontal -set 0
 gui_src_value_annotate -id ${Source.1} -switch false
 gui_set_env TOGGLE::VALUEANNOTATE 0
 gui_open_source -id ${Source.1}  -replace -active I2C_test /afs/andrew.cmu.edu/usr15/snarita/private/projects/fpga-i2c/i2c_test.sv
-gui_view_scroll -id ${Source.1} -vertical -set 0
+gui_view_scroll -id ${Source.1} -vertical -set 30
 gui_src_set_reusable -id ${Source.1}
 
 # View 'Wave.1'

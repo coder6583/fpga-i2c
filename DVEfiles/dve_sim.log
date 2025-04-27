@@ -1,34 +1,34 @@
-06:01:42    16 -->                                                             [tcl] ucliGUI::connect -toolargs -ucligui -toolexe ./simv -pid 636728 -toolin /tmp/vcs_20250427100139_636726_snarita..stdin -toolout /tmp/vcs_20250427100139_636726_snarita..stdout  
-06:01:42    17 -->                                                                 [tcl] set ucliGUI::state
-06:01:42    18 -->                                                                     [tcl] set ucliGUI::state
-06:01:42    19 -->                                                                         [tcl] ucliCore::getToolPID
-06:01:42    20 -->                                                                             [tcl] synopsys::env hasTB
-06:01:42    21 -->                                                                                 [tcl] trigger_hier_stack_context_switch 0
-06:01:42    22 -->                                                                                     [tcl] synUtils::setDVEInitPhase 1
-06:01:42    23 -->                                                                                         [tcl] gui_get_env SIMSETUP::SIMVPD
-06:01:42    24 -->                                                                                             [tcl] synopsys::dump -type VPD -file /afs/andrew.cmu.edu/usr15/snarita/private/projects/fpga-i2c/inter.vpd -locking
-06:01:42    25 --> ...  [tcl] synopsys::dump -autoflush on -fid VPD0
-06:01:42    26 --> ...      [tcl] set ::dve_fid VPD0
-06:01:42    27 --> ...          [tcl] synUtils::setDVEInitPhase 0
-06:01:42    28 --> ...              [tcl] ucliCore::getToolPID
-06:01:42    29 --> ...                  [tcl] synUtils::sendTool -active _icl_setToolSocket /tmp/smlnpzLyxrG
-06:01:42    30 --> ...                      [tcl] synUtils::sendTool -active {_icl_start_rpc -version "T-2022.06_Full64" -sync_file /tmp/vcs_dve_rpc.snarita.636728}
-06:01:43    31 --> ...                          [tcl] synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.snarita.636728}
-06:01:43    32 --> ...                              [tcl] dveMisc::vbusExpand I2C_test
-06:01:43    33 --> ...                                  [tcl] config endofsim noexit
-06:01:43    34 --> ...                                      [tcl] config onfail enable all
-06:01:43    35 --> ...                                          [tcl] config syscaddplainmembers
-06:01:43    36 --> ...                                              [tcl] config syscaddsourcenames
-06:01:43    37 --> ...                                                  [tcl] config syscaddstructtypes
-06:01:43    38 --> ...                                                      [tcl] synopsys::listing -disable
-06:01:48    39 --> ...                                                          [tcl] dveMisc::vbusExpand I2C_test.dut
-06:01:51    40 --> ...                                                              [tcl] synopsys::dump -add {I2C_test.dut.buffer I2C_test.dut.clock I2C_test.dut.delay I2C_test.dut.done I2C_test.dut.error I2C_test.dut.finished_sendclear I2C_test.dut.finished_sendhello I2C_test.dut.is_done I2C_test.dut.reset I2C_test.dut.scl I2C_test.dut.sda I2C_test.dut.send_hello I2C_test.dut.sending_clear I2C_test.dut.sending_hello I2C_test.dut.start_sendclear I2C_test.dut.start_sendhello } -aggregates  -fid VPD0
-06:01:58    41 --> ...                                                                  [tcl] synopsys::run
-06:01:58    42 --> ...                                                                      [tcl] set ucliGUI::state
-06:01:58    43 --> ...                                                                          [tcl] gui_update_simulator_buttons
-06:01:58    44 --> ...                                                                              [tcl] set ucliGUI::state
-06:01:58    45 --> ...                                                                                  [tcl] set ucliGUI::state
-06:01:58    46 --> ...                                                                                      [tcl] set ucliGUI::state
-06:01:58    47 --> ...                                                                                          [tcl] catch {senv activeDomain} dveMisc::result 
-06:01:58    48 --> ...                                                                                              [tcl] set dveMisc::result
-06:01:58    49 --> ...                                                                                                  [tcl] gui_update_simulator_buttons
+16:14:25    16 -->                                                             [tcl] ucliGUI::connect -toolargs -ucligui -toolexe ./simv -pid 777280 -toolin /tmp/vcs_20250427201422_777278_snarita..stdin -toolout /tmp/vcs_20250427201422_777278_snarita..stdout  
+16:14:25    17 -->                                                                 [tcl] set ucliGUI::state
+16:14:26    18 -->                                                                     [tcl] set ucliGUI::state
+16:14:26    19 -->                                                                         [tcl] ucliCore::getToolPID
+16:14:26    20 -->                                                                             [tcl] synopsys::env hasTB
+16:14:26    21 -->                                                                                 [tcl] trigger_hier_stack_context_switch 0
+16:14:26    22 -->                                                                                     [tcl] synUtils::setDVEInitPhase 1
+16:14:26    23 -->                                                                                         [tcl] gui_get_env SIMSETUP::SIMVPD
+16:14:26    24 -->                                                                                             [tcl] synopsys::dump -type VPD -file /afs/andrew.cmu.edu/usr15/snarita/private/projects/fpga-i2c/inter.vpd -locking
+16:14:26    25 --> ...  [tcl] synopsys::dump -autoflush on -fid VPD0
+16:14:26    26 --> ...      [tcl] set ::dve_fid VPD0
+16:14:26    27 --> ...          [tcl] synUtils::setDVEInitPhase 0
+16:14:26    28 --> ...              [tcl] ucliCore::getToolPID
+16:14:26    29 --> ...                  [tcl] synUtils::sendTool -active _icl_setToolSocket /tmp/smlnpWCAtXc
+16:14:26    30 --> ...                      [tcl] synUtils::sendTool -active {_icl_start_rpc -version "T-2022.06_Full64" -sync_file /tmp/vcs_dve_rpc.snarita.777280}
+16:14:26    31 --> ...                          [tcl] synUtils::sendTool -active {_icl_createSharedMemory /tmp/vcs_dve_general.snarita.777280}
+16:14:26    32 --> ...                              [tcl] dveMisc::vbusExpand I2C_test
+16:14:26    33 --> ...                                  [tcl] config endofsim noexit
+16:14:26    34 --> ...                                      [tcl] config onfail enable all
+16:14:26    35 --> ...                                          [tcl] config syscaddplainmembers
+16:14:26    36 --> ...                                              [tcl] config syscaddsourcenames
+16:14:26    37 --> ...                                                  [tcl] config syscaddstructtypes
+16:14:26    38 --> ...                                                      [tcl] synopsys::listing -disable
+16:14:32    39 --> ...                                                          [tcl] dveMisc::vbusExpand I2C_test.dut
+16:14:37    40 --> ...                                                              [tcl] synopsys::dump -add {I2C_test.dut.buffer I2C_test.dut.clock I2C_test.dut.delay I2C_test.dut.done I2C_test.dut.error I2C_test.dut.finished_sendclear I2C_test.dut.finished_sendhello I2C_test.dut.is_done I2C_test.dut.reset I2C_test.dut.scl I2C_test.dut.sda I2C_test.dut.send_hello I2C_test.dut.sending_clear I2C_test.dut.sending_hello I2C_test.dut.start_sendclear I2C_test.dut.start_sendhello } -aggregates  -fid VPD0
+16:14:38    41 --> ...                                                                  [tcl] synopsys::run
+16:14:38    42 --> ...                                                                      [tcl] set ucliGUI::state
+16:14:38    43 --> ...                                                                          [tcl] gui_update_simulator_buttons
+16:14:38    44 --> ...                                                                              [tcl] set ucliGUI::state
+16:14:38    45 --> ...                                                                                  [tcl] set ucliGUI::state
+16:14:38    46 --> ...                                                                                      [tcl] set ucliGUI::state
+16:14:38    47 --> ...                                                                                          [tcl] catch {senv activeDomain} dveMisc::result 
+16:14:38    48 --> ...                                                                                              [tcl] set dveMisc::result
+16:14:38    49 --> ...                                                                                                  [tcl] gui_update_simulator_buttons

@@ -1,5 +1,10 @@
 `default_nettype none
 
+// GPIO_0[10] is sda
+// GPIO_0[11] is scl
+// LEDR is used to signal when it is done sending
+// KEY[0] is reset
+// KEY[1] is send
 module chipInterface (
     input logic CLOCK_50,
     input logic [3:0] KEY,

@@ -1,9 +1,12 @@
 `default_nettype none
 
 `define LCD_ADDR 7'h72
+// Comining the LCD_ADDR with the R/W bit
 `define ADDR_BYTE 8'hE4
+// LCD recognizes the next data byte as a command
 `define CMD 8'h7C
 `define CLEAR 8'h2D
+// 500 cycles will make the clock 100kHz which is the i2c standard
 `define CYCLE_END 16'd500
 `define RISE 16'd125
 `define FALL 16'd375
@@ -13,6 +16,7 @@ module SendByte(
     input logic start,
     input logic [7:0] data,
     output logic done, error,
+    // use tri1 because sda and scl are pulled up to VCC
     inout tri1 sda, scl
 );
 
@@ -25,6 +29,7 @@ module SendByte(
     assign wait_ack = bit_idx == 4'h8;
     assign done = bit_idx == 4'd9;
 
+    // Make sure sda and scl are released if not enabled
     assign sda = sda_en ? sda_val : 1'bz;
     assign scl = scl_en ? scl_val : 1'bz;
 
@@ -64,6 +69,9 @@ module SendByte(
                     end
                 end else begin
                     scl_en <= 1'b1;
+                    // The HIGH of SCL is in the middle, so that
+                    // we know SDA is stable on the rising and falling
+                    // edge of SCL
                     if (cycles < `RISE) begin
                         scl_val <= 1'b0;
                     end else if (cycles < `FALL) begin
@@ -76,15 +84,18 @@ module SendByte(
                     end
                     if (~wait_ack) begin
                         sda_en <= 1'b1;
+                        // MSB so decrement data idx
                         sda_val <= data[4'h7 - bit_idx];
                     end else begin
                         sda_en <= 1'b0;
+                        // If SDA is HIGH in ACK, it is a NAK
                         if (scl_val & sda) begin
                             is_nak <= 1'b1;
                         end
                     end
                 end
             end else if (waiting) begin
+                // Wait a little bit for the slave to get ready
                 if (cycles < `CYCLE_END) begin
                     sda_val <= 1'b0;
                 end else begin
@@ -97,6 +108,7 @@ module SendByte(
                 end else begin
                     scl_en <= 1'b0;
                 end
+                // Wait until SCL is released (waiting for slave)
                 if (scl & (cycles == 16'd1000)) begin
                     waiting <= 1'b0;
                     sending <= 1'b1;
@@ -115,6 +127,7 @@ module SendByte(
     end
 endmodule : SendByte
 
+// Sends the address byte, CMD byte and CLR byte
 module SendClear (
     input logic clock, reset,
     input logic start,
@@ -140,6 +153,7 @@ module SendClear (
     logic [2:0][7:0] bytes;
     logic [7:0] byte_send;
     logic [3:0] byte_idx;
+    // Iterate from the highest to lowest to send all bytes
     assign bytes = {`ADDR_BYTE, `CMD, `CLEAR};
 
     SendByte sb(.clock, .reset, .start(start_send), .data(byte_send),
@@ -164,6 +178,8 @@ module SendClear (
         end else begin
             if (start_bit) begin
                 cycles <= cycles + 1;
+                // Wait a little bit to pull SCL down
+                // because SDA needs to be pulled down first
                 if (cycles < `RISE) begin
                     sda_en <= 1'b1;
                     sda_val <= 1'b0;
@@ -175,6 +191,7 @@ module SendClear (
                     byte_idx <= 4'h2;
                 end
             end else if (sending) begin
+                // Disable SDA and SCL because SendByte will enable them
                 sda_en <= 1'b0;
                 scl_en <= 1'b0;
                 if (finished_send) begin
@@ -189,6 +206,7 @@ module SendClear (
                     end
                 end
             end else if (buffer) begin
+                // Wait a little bit before sending the stop condition
                 cycles <= cycles + 1;
                 if (cycles < 16'd1000) begin
                     scl_en <= 1'b1;
@@ -203,8 +221,11 @@ module SendClear (
                     cycles <= 16'h0;
                 end
             end else if (stop_bit) begin
+                // Wait until SCL is high (slave wait mechanism)
                 if (scl) begin
                     cycles <= cycles + 1;
+                    // Wait a little bit before releasing SDA
+                    // because SCL needs to be released first
                     if (cycles < `RISE) begin
                         sda_en <= 1'b1;
                         sda_val <= 1'b0;
@@ -224,6 +245,8 @@ module SendClear (
     end
 endmodule : SendClear
 
+// Sends Address byte, H, E, L, L, O
+// Same code as SendClear
 module SendHello (
     input logic clock, reset,
     input logic start,
@@ -364,18 +387,22 @@ module I2C (
             buffer <= 1'b0;
         end else begin
             if (sending_clear) begin
+                // Send clear command first
                 if (finished_sendclear) begin
                     sending_clear <= 1'b0;
                     buffer <= 1'b1;
                     delay <= 16'h0;
                 end
             end else if (buffer) begin
+                // Wait a little before sending HELLO as slave needs to get
+                // ready
                 delay <= delay + 1;
                 if (delay == 16'd2000) begin
                     buffer <= 1'b0;
                     sending_hello <= 1'b1;
                 end
             end else if (sending_hello) begin
+                // Send ASCII codes for HELLO
                 if (finished_sendhello) begin
                     sending_hello <= 1'b0;
                     is_done <= 1'b1;
