@@ -1,0 +1,7 @@
+Command exited with non-zero status 255
+{"vcs1":{"timestamp_begin":1745742362.389606376, "rt":0.38, "ut":0.06, "st":0.05}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1745742361.619171199}
+{"VCS_COMP_START_TIME": 1745742361.619171199}
+{"VCS_COMP_END_TIME": 1745742362.858390893}
+{"VCS_USER_OPTIONS": "-full64 -sverilog -debug_all +lint=noVCDE +warn=all -j64 -timescale=1ns/1ps +v2k -v /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/altera_primitives.v -v /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/220model.v -v /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/sgate.v -v /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/altera_mf.v -v /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/cyclonev_atoms.v -o simv i2c.sv i2c_test.sv"}
+{"vcs1": {"peak_mem": 594098}}

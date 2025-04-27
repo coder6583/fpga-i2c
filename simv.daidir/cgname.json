@@ -1,0 +1,26 @@
+{
+    "std": [
+        "std",
+        "reYIK",
+        "module",
+        1
+    ],
+    "SendByte": [
+        "SendByte",
+        "tRxqS",
+        "module",
+        2
+    ],
+    "I2C_test": [
+        "I2C_test",
+        "mSLAk",
+        "module",
+        3
+    ],
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
+        "module",
+        4
+    ]
+}

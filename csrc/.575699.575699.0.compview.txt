@@ -1,0 +1,9 @@
+{"vcs1":{"timestamp_begin":1745740336.202025929, "rt":0.65, "ut":0.16, "st":0.29}}
+{"vcselab":{"timestamp_begin":1745740336.955125471, "rt":0.94, "ut":0.26, "st":0.52}}
+{"link":{"timestamp_begin":1745740337.976697272, "rt":3.31, "ut":0.12, "st":3.02}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1745740335.429536332}
+{"VCS_COMP_START_TIME": 1745740335.429536332}
+{"VCS_COMP_END_TIME": 1745740342.246224811}
+{"VCS_USER_OPTIONS": "-full64 -sverilog -debug_all +lint=noVCDE +warn=all -j64 -timescale=1ns/1ps +v2k -v /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/altera_primitives.v -v /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/220model.v -v /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/sgate.v -v /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/altera_mf.v -v /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/cyclonev_atoms.v -o simv i2c.sv i2c_test.sv"}
+{"vcs1": {"peak_mem": 576308}}
+{"stitch_vcselab": {"peak_mem": 576376}}
