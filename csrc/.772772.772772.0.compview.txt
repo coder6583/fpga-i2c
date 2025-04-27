@@ -1,0 +1,5 @@
+{"comelab":{"timestamp_begin":1745784538.759892493, "rt":16.87, "ut":0.90, "st":4.96}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1745784538.188551985}
+{"VCS_COMP_START_TIME": 1745784538.188551985}
+{"VCS_COMP_END_TIME": 1745784555.703869082}
+{"VCS_USER_OPTIONS": "-full64 -sverilog -debug_all +lint=noVCDE +warn=all -timescale=1ns/1ps -nc I2C_test"}

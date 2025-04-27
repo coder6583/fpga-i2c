@@ -1,5 +1,7 @@
 `default_nettype none
 
+// Simple testbench to initiate I2C sending
+// No ACK or wait testing
 module I2C_test ();
     logic clock, reset, send_hello, done;
     tri1 sda, scl;

@@ -4,27 +4,27 @@ gui_create_pref_key -category {Globals} -key {load_detail_for_funcov} -value_typ
 # State setting overrides
 gui_state_default_create -off -ini
 gui_set_state_value -category Layout -key child_console_size_x -value 1279
-gui_set_state_value -category Layout -key child_console_size_y -value 124
+gui_set_state_value -category Layout -key child_console_size_y -value 112
 gui_set_state_value -category Layout -key child_data_coltype -value 80
 gui_set_state_value -category Layout -key child_data_colvariable -value 179
 gui_set_state_value -category Layout -key child_data_size_x -value 105
-gui_set_state_value -category Layout -key child_data_size_y -value 505
+gui_set_state_value -category Layout -key child_data_size_y -value 517
 gui_set_state_value -category Layout -key child_driver_size_x -value 1007
 gui_set_state_value -category Layout -key child_driver_size_y -value 179
 gui_set_state_value -category Layout -key child_hier_col3 -value {-1}
 gui_set_state_value -category Layout -key child_hier_colhier -value 141
 gui_set_state_value -category Layout -key child_hier_colpd -value 0
 gui_set_state_value -category Layout -key child_hier_coltype -value 80
-gui_set_state_value -category Layout -key child_hier_size_x -value 140
-gui_set_state_value -category Layout -key child_hier_size_y -value 505
+gui_set_state_value -category Layout -key child_hier_size_x -value 128
+gui_set_state_value -category Layout -key child_hier_size_y -value 517
 gui_set_state_value -category Layout -key child_hier_sort_order -value 1
 gui_set_state_value -category Layout -key child_list_down -value 184
 gui_set_state_value -category Layout -key child_list_right -value 444
 gui_set_state_value -category Layout -key child_source_docknewline -value false
 gui_set_state_value -category Layout -key child_source_pos_x -value {-2}
 gui_set_state_value -category Layout -key child_source_pos_y -value {-15}
-gui_set_state_value -category Layout -key child_source_size_x -value 1037
-gui_set_state_value -category Layout -key child_source_size_y -value 500
+gui_set_state_value -category Layout -key child_source_size_x -value 1049
+gui_set_state_value -category Layout -key child_source_size_y -value 512
 gui_set_state_value -category Layout -key child_wave_colname -value 183
 gui_set_state_value -category Layout -key child_wave_colvalue -value 183
 gui_set_state_value -category Layout -key child_wave_left -value 370
@@ -72,13 +72,26 @@ gui_state_default_create -off
 gui_sim_run Ucli -exe ./simv -args {-ucligui  } -dir .
 gui_list_expand -id  Hier.1   I2C_test
 gui_list_select -id Hier.1 -current_item_name I2C_test.dut -current_item_type Scope  -selected  { I2C_test.dut   }
-gui_list_select -id Data.1 -selected  { I2C_test.dut.error   }
+gui_list_select -id Data.1 -selected  { I2C_test.dut.scl   }
 gui_list_select_all -id Data.1
 gui_open_window Wave
 gui_list_add -id Wave.1 -from Data.1 { I2C_test.dut.clock I2C_test.dut.reset I2C_test.dut.send_hello I2C_test.dut.done I2C_test.dut.error I2C_test.dut.sda I2C_test.dut.scl I2C_test.dut.start_sendclear I2C_test.dut.finished_sendclear I2C_test.dut.start_sendhello I2C_test.dut.finished_sendhello {I2C_test.dut.delay[15:0]} I2C_test.dut.sending_clear I2C_test.dut.buffer I2C_test.dut.sending_hello I2C_test.dut.is_done } -insertionbar
-gui_close_window -window TopLevel.2
-gui_open_window Wave
-gui_list_add -id Wave.1 -from Data.1 { I2C_test.dut.clock I2C_test.dut.reset I2C_test.dut.send_hello I2C_test.dut.done I2C_test.dut.error I2C_test.dut.sda I2C_test.dut.scl I2C_test.dut.start_sendclear I2C_test.dut.finished_sendclear I2C_test.dut.start_sendhello I2C_test.dut.finished_sendhello {I2C_test.dut.delay[15:0]} I2C_test.dut.sending_clear I2C_test.dut.buffer I2C_test.dut.sending_hello I2C_test.dut.is_done } -insertionbar
-gui_wv_zoom_timerange -id  Wave.1 0 294
 gui_sim_continue  
+gui_list_select -id Wave.1 -selected  { I2C_test.dut.scl   }
 gui_zoom -window Wave.1 -full
+gui_wv_zoom_timerange -id  Wave.1 0 82457664
+gui_wv_zoom_timerange -id  Wave.1 15670687 16790022
+gui_marker_move -id  Wave.1 C1 16305000
+gui_zoom -window Wave.1 -full
+gui_marker_move -id  Wave.1 C1 177915000
+gui_marker_move -id  Wave.1 C1 164145000
+gui_marker_select -id  Wave.1 { C1 }
+gui_marker_move -id  Wave.1 C1 16325000
+gui_wv_zoom_timerange -id  Wave.1 0 194844406
+gui_zoom -window Wave.1 -full
+gui_wv_zoom_timerange -id  Wave.1 0 539945000
+gui_wv_zoom_timerange -id  Wave.1 0 539945000
+gui_wv_zoom_timerange -id  Wave.1 0 539945000
+gui_wv_zoom_timerange -id  Wave.1 0 539945000
+gui_wv_zoom_timerange -id  Wave.1 0 539945000
+gui_wv_zoom_timerange -id  Wave.1 0 539945000
