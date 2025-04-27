@@ -85,7 +85,11 @@ module SendByte(
                     end
                 end
             end else if (waiting) begin
-                sda_val <= data[4'h7 - bit_idx];
+                if (cycles < 16'd50) begin
+                    sda_val <= 1'b0;
+                end else begin
+                    sda_val <= data[4'h7 - bit_idx];
+                end
                 if (cycles < `RISE) begin
                     scl_en <= 1'b1;
                     scl_val <= 1'b0;
@@ -143,6 +147,8 @@ module SendClear (
     assign start_send = sending & (byte_idx != 4'h0);
     assign byte_send = bytes[byte_idx];
 
+    logic buffer;
+
     always_ff @(posedge clock, posedge reset) begin
         if (reset) begin
             cycles <= 16'h0;
@@ -173,10 +179,27 @@ module SendClear (
                 if (finished_send) begin
                     if (byte_idx == 4'h0) begin
                         sending <= 1'b0;
-                        stop_bit <= 1'b1;
+                        scl_en <= 1'b1;
+                        scl_val <= 1'b0;
+                        buffer <= 1'b1;
+                        cycles <= 16'h0;
                     end else begin
                         byte_idx <= byte_idx - 4'h1;
                     end
+                end
+            end else if (buffer) begin
+                cycles <= cycles + 1;
+                if (cycles < `RISE) begin
+                    scl_en <= 1'b1;
+                    sda_en <= 1'b1;
+                    scl_val <= 1'b0;
+                    sda_val <= 1'b0;
+                end else if (cycles == `RISE) begin
+                    scl_en <= 1'b0;
+                    scl_val <= 1'b0;
+                    buffer <= 1'b0;
+                    stop_bit <= 1'b1;
+                    cycles <= 16'h0;
                 end
             end else if (stop_bit) begin
                 if (scl) begin
@@ -233,6 +256,8 @@ module SendHello (
     assign start_send = sending & (byte_idx != 0);
     assign byte_send = bytes[byte_idx];
 
+    logic buffer;
+
     always_ff @(posedge clock, posedge reset) begin
         if (reset) begin
             cycles <= 16'h0;
@@ -263,12 +288,29 @@ module SendHello (
                 if (finished_send) begin
                     if (byte_idx == 4'h0) begin
                         sending <= 1'b0;
-                        stop_bit <= 1'b1;
+                        buffer <= 1'b1;
+                        cycles <= 16'h0;
+                        scl_en <= 1'b1;
+                        scl_val <= 1'b0;
                     end else begin
                         byte_idx <= byte_idx - 4'h1;
                     end
                 end
-            end else if (stop_bit) begin
+            end else if (buffer) begin
+                cycles <= cycles + 1;
+                if (cycles < `RISE) begin
+                    scl_en <= 1'b1;
+                    sda_en <= 1'b1;
+                    scl_val <= 1'b0;
+                    sda_val <= 1'b0;
+                end else if (cycles == `RISE) begin
+                    scl_en <= 1'b0;
+                    scl_val <= 1'b0;
+                    buffer <= 1'b0;
+                    stop_bit <= 1'b1;
+                    cycles <= 16'h0;
+                end
+            end  else if (stop_bit) begin
                 if (scl) begin
                     cycles <= cycles + 1;
                     if (cycles < `RISE) begin
