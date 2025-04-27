@@ -307,15 +307,16 @@ module I2C (
 
     logic [15:0] delay;
 
-    logic sending_clear, buffer, sending_hello;
+    logic sending_clear, buffer, sending_hello, is_done;
     assign start_sendclear = send_hello;
     assign start_sendhello = buffer & delay == `CYCLE_END;
-    assign done = finished_sendhello;
+    assign done = is_done;
 
     always_ff @(posedge clock, posedge reset) begin
         if (reset) begin
             sending_clear <= 1'b0;
             sending_hello <= 1'b0;
+            is_done <= 1'b0;
             delay <= 16'h0;
             buffer <= 1'b0;
         end else begin
@@ -334,7 +335,9 @@ module I2C (
             end else if (sending_hello) begin
                 if (finished_sendhello) begin
                     sending_hello <= 1'b0;
+                    is_done <= 1'b1;
                 end
+            end else if (is_done) begin
             end else begin
                 if (send_hello) begin
                     sending_clear <= 1'b1;

@@ -14,13 +14,15 @@ module chipInterface (
 
     Synchronizer syncrst(.sync(reset), .async(~KEY[0]), .clock);
     Synchronizer syncsend(.sync(send), .async(~KEY[1]), .clock);
-	 
-	 tri1 sda, scl;
+
+    tri1 sda, scl;
 
     assign sda = GPIO_0[10];
     assign scl = GPIO_0[11];
 
     logic done, error;
+    assign LEDR[9:0] = {done, done, done, done, done,
+                        done, done, done, done, done};
 
     I2C i2c(.clock, .reset, .send_hello(send), .done, .error, .sda, .scl);
 endmodule : chipInterface

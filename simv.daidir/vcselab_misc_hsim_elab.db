@@ -39,7 +39,7 @@ fMcpDynClkProp                     	0
 fHsimVhVlOpt                       	0
 fHsimMdbVhVlInputFuseOpt           	0
 fHsimMdbVhVlInoutFuseOpt           	0
-fHsimMdbVhVlCcnOpt                 	0
+fHsimMdbVhVlCcnOpt                 	1
 fHsimVlVhOpt                       	0
 fHsimVlVhVlOpt                     	0
 fHsimVlVhBfuseOpt                  	0
@@ -549,7 +549,7 @@ fHsimParallelElabVcs1              	0
 fpicArchive                        	1
 fCsrcInTmpDir                      	0
 fHsimInterconFE                    	1
-fHsimMxOpt                         	1
+fHsimMxOpt                         	0
 fHsimModpathFE                     	1
 fHsimPathOnCCN                     	0
 fHsimTranDelay                     	0
@@ -819,7 +819,7 @@ fHsimGlueOpt                       	0
 fHsimPGatePatchOpt                 	0
 fHsimCgNoPic                       	0
 fHsimElabModCg                     	0
-fPossibleNullChecks                	0
+fPossibleNullChecks                	1
 fHsimProcessNoSplit                	1
 fHsimMdbInstDiag                   	0
 fHsimMdbOptInSchedDelta            	0
@@ -1024,7 +1024,7 @@ fHsimMdbcgLhsConcat                	0
 fHsimMdbcgSelectSplit              	0
 fHsimMdbcgProcessSelSplit          	0
 fHsimMdbcgEdgeop                   	0
-fHsimMdbcgMultiDelayControl        	1
+fHsimMdbcgMultiDelayControl        	0
 fHsimParGateEvalMode               	0
 fHsimDFuseVectors                  	0
 fHsimDFuseVecIgnoreFrc             	0

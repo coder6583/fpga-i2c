@@ -1,0 +1,22 @@
+
+VLOGAN	= vlogan
+VLOGAN_OPT	= +warn=all -full64 -sverilog -timescale=1ns/1ps +v2k -v /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/altera_primitives.v -v /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/220model.v -v /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/sgate.v -v /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/altera_mf.v -v /afs/ece/support/altera/release/16.1.2/quartus/eda/sim_lib/cyclonev_atoms.v -full64
+
+all :		_VCSgd_LS4Zkc_1.db \
+	_VCSgd_y4ItV_1.db \
+	_VCSgd_zcAFub_1.db \
+
+
+
+_VCSgd_LS4Zkc_1.db :	i2c.sv 
+		${VLOGAN}  ${VLOGAN_OPT} i2c.sv
+
+
+_VCSgd_y4ItV_1.db :	ChipInterface.sv 
+		${VLOGAN}  ${VLOGAN_OPT} ChipInterface.sv
+
+
+_VCSgd_zcAFub_1.db :	i2c_test.sv 
+		${VLOGAN}  ${VLOGAN_OPT} i2c_test.sv
+
+

@@ -429,7 +429,7 @@ fHsimGlueOpt                       	0
 fHsimPGatePatchOpt                 	0
 fHsimCgNoPic                       	0
 fHsimElabModCg                     	0
-fPossibleNullChecks                	0
+fPossibleNullChecks                	1
 fHsimProcessNoSplit                	1
 fHsimMdbOptInSchedDelta            	0
 fScaleTimeValue                    	0

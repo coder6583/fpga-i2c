@@ -18,11 +18,16 @@ module I2C_test ();
         reset <= 1'b1;
         @(posedge clock);
         reset <= 1'b0;
+        repeat(500) begin
+            @(posedge clock);
+        end
         send_hello <= 1'b1;
         @(posedge clock);
         send_hello <= 1'b0;
         wait (done);
-        @(posedge clock);
+        repeat(500) begin
+            @(posedge clock);
+        end
         $finish();
     end
 endmodule : I2C_test

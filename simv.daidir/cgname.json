@@ -5,17 +5,35 @@
         "module",
         1
     ],
+    "I2C_test": [
+        "I2C_test",
+        "mSLAk",
+        "module",
+        3
+    ],
+    "I2C": [
+        "I2C",
+        "cxrMd",
+        "module",
+        5
+    ],
+    "SendClear": [
+        "SendClear",
+        "gr7tu",
+        "module",
+        6
+    ],
     "SendByte": [
         "SendByte",
         "tRxqS",
         "module",
         2
     ],
-    "I2C_test": [
-        "I2C_test",
-        "mSLAk",
+    "SendHello": [
+        "SendHello",
+        "qDUcY",
         "module",
-        3
+        7
     ],
     "...MASTER...": [
         "SIM",
