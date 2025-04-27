@@ -1,8 +1,9 @@
 `default_nettype none
 
-module ChipInterface (
+module chipInterface (
     input logic CLOCK_50,
     input logic [3:0] KEY,
+	 output logic [9:0] LEDR,
     inout logic [35:0] GPIO_0
 );
 
@@ -13,6 +14,8 @@ module ChipInterface (
 
     Synchronizer syncrst(.sync(reset), .async(~KEY[0]), .clock);
     Synchronizer syncsend(.sync(send), .async(~KEY[1]), .clock);
+	 
+	 tri1 sda, scl;
 
     assign sda = GPIO_0[10];
     assign scl = GPIO_0[11];
@@ -20,7 +23,7 @@ module ChipInterface (
     logic done, error;
 
     I2C i2c(.clock, .reset, .send_hello(send), .done, .error, .sda, .scl);
-endmodule : ChipInterface
+endmodule : chipInterface
 
 // DFlipFlop used for the synchronizer
 module DFlipFlop (
