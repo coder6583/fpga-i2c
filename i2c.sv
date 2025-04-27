@@ -85,21 +85,22 @@ module SendByte(
                     end
                 end
             end else if (waiting) begin
-                if (cycles < 16'd50) begin
+                if (cycles < `CYCLE_END) begin
                     sda_val <= 1'b0;
                 end else begin
                     sda_val <= data[4'h7 - bit_idx];
                 end
-                if (cycles < `RISE) begin
+                if (cycles < 16'd1000) begin
                     scl_en <= 1'b1;
                     scl_val <= 1'b0;
                     cycles <= cycles + 1;
                 end else begin
                     scl_en <= 1'b0;
                 end
-                if (scl & (cycles == `RISE)) begin
+                if (scl & (cycles == 16'd1000)) begin
                     waiting <= 1'b0;
                     sending <= 1'b1;
+                    cycles <= `RISE;
                 end
             end else begin
                 if (start) begin
@@ -189,12 +190,12 @@ module SendClear (
                 end
             end else if (buffer) begin
                 cycles <= cycles + 1;
-                if (cycles < `RISE) begin
+                if (cycles < 16'd1000) begin
                     scl_en <= 1'b1;
                     sda_en <= 1'b1;
                     scl_val <= 1'b0;
                     sda_val <= 1'b0;
-                end else if (cycles == `RISE) begin
+                end else if (cycles == 16'd1000) begin
                     scl_en <= 1'b0;
                     scl_val <= 1'b0;
                     buffer <= 1'b0;
@@ -298,12 +299,12 @@ module SendHello (
                 end
             end else if (buffer) begin
                 cycles <= cycles + 1;
-                if (cycles < `RISE) begin
+                if (cycles < 16'd1000) begin
                     scl_en <= 1'b1;
                     sda_en <= 1'b1;
                     scl_val <= 1'b0;
                     sda_val <= 1'b0;
-                end else if (cycles == `RISE) begin
+                end else if (cycles == 16'd1000) begin
                     scl_en <= 1'b0;
                     scl_val <= 1'b0;
                     buffer <= 1'b0;
